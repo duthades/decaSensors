@@ -1,11 +1,5 @@
-#ifndef _SENSOR_H
-#define _SENSOR_H
+#include "include/sensor.h"
 
 namespace sensor {
-class Sensor {
-   public:
-    virtual ~Sensor() = 0;
-};
+sensor::Sensor::~Sensor() {}
 }  // namespace sensor
-
-#endif
