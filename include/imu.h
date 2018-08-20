@@ -8,11 +8,9 @@
 namespace sensor {
 class Imu : public Sensor {
     int size;
-    std::vector<double> acc_x;
-    std::vector<double> acc_y;
-    std::vector<double> acc_z;
-    std::vector<double> acc_resultant;
-    std::vector<double> time;  // TIMESTAMP
+    std::vector<double> x;
+    std::vector<double> y;
+    std::vector<double> z;
    public:
     Imu(vector<vector<double>> data_ref);
     ~Imu();
@@ -21,8 +19,7 @@ class Imu : public Sensor {
     vector<double> get_x_data();
     vector<double> get_y_data();
     vector<double> get_z_data();
-    void resultant();
-    void steps();
+
 };
 }  // namespace sensor
 

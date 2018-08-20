@@ -6,27 +6,27 @@ sensor::Imu::Imu( vector<vector<double>> data_ref) : size(data_ref.size()) {
 }
 void sensor::Imu::read_data( vector<vector<double>> ref) {
     int size = ref.size();
-    acc_x.resize(size);
-    acc_y.resize(size);
-    acc_z.resize(size);
+    x.resize(size);
+    y.resize(size);
+    z.resize(size);
     auto iter = ref.begin();
     int i = 0;
     for (iter; iter != ref.end(); ++iter, i++) {
-        acc_x[i] = (*iter)[0];
-        acc_y[i] = (*iter)[1];
-        acc_z[i] = (*iter)[2];
+        x[i] = (*iter)[0];
+        y[i] = (*iter)[1];
+        z[i] = (*iter)[2];
     }
     ref.clear();
 }
 sensor::Imu::Imu() {}
 sensor::Imu::~Imu() {
-acc_x.clear();
-acc_y.clear();
-acc_z.clear();
+x.clear();
+y.clear();
+z.clear();
 }
-vector<double> sensor::Imu::get_x_data() { return acc_x; }
-vector<double> sensor::Imu::get_y_data() { return acc_y; }
-vector<double> sensor::Imu::get_z_data() { return acc_z; }
+vector<double> sensor::Imu::get_x_data() { return x; }
+vector<double> sensor::Imu::get_y_data() { return y; }
+vector<double> sensor::Imu::get_z_data() { return z; }
 }  // namespace sensor
    /*
    int main() {

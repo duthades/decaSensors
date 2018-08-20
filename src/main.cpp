@@ -20,6 +20,8 @@ int main() {
     sen3 = new sensor::Magnetometer(data.get_magnetometer_data());
 
     std::cout << sen1->get_x_data().size() << "\n";
+    std::cout << sen2->get_x_data().size() << "\n";
+    std::cout << sen3->get_x_data().size() << "\n";
     delete sen1;
     delete sen2;
     delete sen3;
