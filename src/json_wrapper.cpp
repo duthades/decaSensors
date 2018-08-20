@@ -6,7 +6,11 @@ data::ReadJson::ReadJson(string name) : file_name(name) {
     parsed_text = json::parse(fin);
     size = parsed_text.size();
 }
-vector<double>& data::ReadJson::get_data_vector_1D(string key) {
+data::ReadJson::~ReadJson() {
+    data_3D.clear();
+    data_1D.clear();
+}
+vector<double> data::ReadJson::get_data_vector_1D(string key) {
     data_1D.resize(size);
     auto iter = parsed_text.begin();
     int i = 0;
@@ -15,9 +19,9 @@ vector<double>& data::ReadJson::get_data_vector_1D(string key) {
     }
     return data_1D;
 }
-vector<vector<double>>& data::ReadJson::get_data_vector_3D(string key1,
-                                                           string key2,
-                                                           string key3) {
+const vector<vector<double>> data::ReadJson::get_data_vector_3D(string key1,
+                                                                string key2,
+                                                                string key3) {
     data_3D.resize(size);
     auto iter = parsed_text.begin();
     int i = 0;
@@ -29,26 +33,26 @@ vector<vector<double>>& data::ReadJson::get_data_vector_3D(string key1,
     }
     return data_3D;
 }
-vector<vector<double>>& data::ReadJson::get_accelerometer_data() {
+const vector<vector<double>> data::ReadJson::get_accelerometer_data() {
     return get_data_vector_3D("acc_x", "acc_y", "acc_z");
 }
-vector<vector<double>>& data::ReadJson::get_gyroscope_data() {
+const vector<vector<double>> data::ReadJson::get_gyroscope_data() {
     return get_data_vector_3D("gyro_x", "gyro_y", "gyro_z");
 }
-vector<vector<double>>& data::ReadJson::get_magnetometer_data() {
+const vector<vector<double>> data::ReadJson::get_magnetometer_data() {
     return get_data_vector_3D("m_field_x", "m_field_y", "m_field_z");
 }
 
-vector<double>& data::ReadJson::get_light_data() {
+const vector<double> data::ReadJson::get_light_data() {
     return get_data_vector_1D("light");
 }
 
-vector<double>& data::ReadJson::get_sound_data() {
+vector<double> data::ReadJson::get_sound_data() {
     return get_data_vector_1D("sound");
 }
 
 }  // namespace data
-   /*
+/*
    int main() {
        data::ReadJson data("data/data.json");
        cout << data.get_light_data().size() << "\n";

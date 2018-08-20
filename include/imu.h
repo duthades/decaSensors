@@ -14,10 +14,10 @@ class Imu : public Sensor {
     std::vector<double> acc_resultant;
     std::vector<double> time;  // TIMESTAMP
    public:
-    Imu(vector<vector<double>>& data_ref);
+    Imu(vector<vector<double>> data_ref);
     ~Imu();
     Imu();
-    void read_data(vector<vector<double>>& ref);
+    void read_data(vector<vector<double>> ref);
     vector<double> get_x_data();
     vector<double> get_y_data();
     vector<double> get_z_data();

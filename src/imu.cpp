@@ -1,10 +1,10 @@
 #include "include/imu.h"
 
 namespace sensor {
-sensor::Imu::Imu(vector<vector<double>>& data_ref) : size(data_ref.size()) {
+sensor::Imu::Imu( vector<vector<double>> data_ref) : size(data_ref.size()) {
     read_data(data_ref);
 }
-void sensor::Imu::read_data(vector<vector<double>>& ref) {
+void sensor::Imu::read_data( vector<vector<double>> ref) {
     int size = ref.size();
     acc_x.resize(size);
     acc_y.resize(size);
@@ -16,9 +16,14 @@ void sensor::Imu::read_data(vector<vector<double>>& ref) {
         acc_y[i] = (*iter)[1];
         acc_z[i] = (*iter)[2];
     }
+    ref.clear();
 }
 sensor::Imu::Imu() {}
-sensor::Imu::~Imu() {}
+sensor::Imu::~Imu() {
+acc_x.clear();
+acc_y.clear();
+acc_z.clear();
+}
 vector<double> sensor::Imu::get_x_data() { return acc_x; }
 vector<double> sensor::Imu::get_y_data() { return acc_y; }
 vector<double> sensor::Imu::get_z_data() { return acc_z; }
