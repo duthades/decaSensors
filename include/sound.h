@@ -9,7 +9,7 @@
 namespace sensor {
 class Sound : public Env {
    public:
-    Sound(vector<double> data_ref);
+    explicit Sound(vector<double> data_ref);
     ~Sound() = default;
     
     inline vector<double> get_x_data() {}

@@ -9,7 +9,7 @@
 namespace sensor {
 class Accelerometer : public Imu {
    public:
-    Accelerometer(vector<vector<double>> data_ref);
+    explicit Accelerometer(vector<vector<double>> data_ref);
     ~Accelerometer() = default;
     inline vector<double> get_data() {}
 

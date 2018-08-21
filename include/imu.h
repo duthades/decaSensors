@@ -13,7 +13,7 @@ class Imu : public Sensor {
     std::vector<double> y;
     std::vector<double> z;
    public:
-    Imu(vector<vector<double>> data_ref);
+    explicit Imu(vector<vector<double>> data_ref);
     ~Imu();
     Imu();
     void read_data(vector<vector<double>> ref);

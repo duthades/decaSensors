@@ -5,8 +5,8 @@
 #include "include/magnetometer.h"
 
 using namespace std;
-vector<vector<double>> roll_pitch_yaw(sensor::Accelerometer acc,
-                                      sensor::Magnetometer magneto) {
+vector<vector<double>> roll_pitch_yaw(sensor::Accelerometer& acc,
+                                      sensor::Magnetometer& magneto) {
     vector<vector<double>> result(acc['x'].size());
 
     for (int i = 0; i < acc['x'].size(); ++i) {
@@ -18,9 +18,9 @@ vector<vector<double>> roll_pitch_yaw(sensor::Accelerometer acc,
         auto my = magneto['y'][i];
         auto mz = magneto['z'][i];
 
-        result[i][0] =
+        result[i][1] =
             atan2(ay, (sqrt((ax * ax) + (az * az)))) * 57.3;  // pitch
-        result[i][1] = atan2(ay, (sqrt((ax * ax) + (az * az)))) * 57.3;  // roll
+        result[i][0] = atan2(ay, (sqrt((ax * ax) + (az * az)))) * 57.3;  // roll
 
         auto Yh = (my * cos(result[i][1])) - (mz * sin(result[i][1]));
         auto Xh = (mx * cos(result[i][0])) +
@@ -32,7 +32,7 @@ vector<vector<double>> roll_pitch_yaw(sensor::Accelerometer acc,
     return std::move(result);
 }
 
-int get_steps(sensor::Accelerometer acc) {
+int get_steps(sensor::Accelerometer& acc) {
     int peaks = 0;
     vector<double> resultant(acc['x'].size());
     int i = 0;
@@ -49,6 +49,11 @@ int get_steps(sensor::Accelerometer acc) {
     for (int j = 1; j < resultant.size() - 1; j++) {
         if ((resultant[j - 1] < resultant[j]) &&
             (resultant[j] > resultant[j + 1]))
+            peaks++;
+    }
+    for (int j = 1; j < resultant.size() - 1; j++) {
+        if ((-1 * resultant[j - 1] < -1 * resultant[j]) &&
+            (-1 * resultant[j] > -1 * resultant[j + 1]))
             peaks++;
     }
     return peaks;

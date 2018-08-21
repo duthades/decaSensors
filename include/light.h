@@ -9,7 +9,7 @@
 namespace sensor {
 class Light : public Env {
    public:
-    Light(vector<double> data_ref);
+    explicit Light(vector<double> data_ref);
     ~Light() = default;
     inline vector<double> get_x_data() {}
     inline vector<double> get_y_data() {}

@@ -23,7 +23,7 @@ class ReadJson {
 
    public:
     ReadJson() = delete;
-    ReadJson(string name);
+    explicit ReadJson(string name);
     ~ReadJson();
     vector<double> get_data_vector_1D(string key);
     const vector<vector<double>> get_data_vector_3D(string key1, string key2,
