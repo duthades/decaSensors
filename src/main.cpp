@@ -22,6 +22,7 @@ int main() {
 
     sensor::Accelerometer acc1(data.get_accelerometer_data());
     sensor::Gyroscope gyro1(data.get_gyroscope_data());
+    sensor::Magnetometer magneto(data.get_magnetometer_data());
 
     sen1 = new sensor::Accelerometer(data.get_accelerometer_data());
     sen2 = new sensor::Gyroscope(data.get_gyroscope_data());
@@ -35,9 +36,12 @@ int main() {
     std::cout << (*sen4)[0] << "\n";
     std::cout << (*sen5)[0] << "\n";
 
-    auto rpy = roll_pitch_yaw(acc1, gyro1);
+    auto rpy = roll_pitch_yaw(acc1, magneto);
 
-    std::cout << rpy[0][5] << "\n";
+    std::cout << rpy[0][0] << "\n";
+    int steps = get_steps(acc1);
+
+    std::cout << "Total Steps: " << steps << "\n";
 
     delete sen1;
     delete sen2;

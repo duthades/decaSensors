@@ -5,8 +5,10 @@
 #include <vector>
 #include "include/accelerometer.h"
 #include "include/gyroscope.h"
+#include "include/magnetometer.h"
 
 
-vector<vector<double>> roll_pitch_yaw(sensor::Accelerometer acc, sensor::Gyroscope gyro);
+vector<vector<double>> roll_pitch_yaw(sensor::Accelerometer acc, sensor::Magnetometer magneto);
+int get_steps(sensor::Accelerometer acc);
 
 #endif
