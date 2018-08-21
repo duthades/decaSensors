@@ -31,7 +31,7 @@ build/imu.o: src/imu.cpp include/imu.h
 build/json_wrapper.o: src/json_wrapper.cpp include/json_wrapper.h
 	$(CC) -c src/json_wrapper.cpp -o build/json_wrapper.o -I.
 
-build/main.o: src/main.cpp include/json.hpp
+build/main.o: src/main.cpp 
 	$(CC) -c src/main.cpp -o build/main.o -I.
 clean:
 	rm -rf build/*.o sensor-demo
