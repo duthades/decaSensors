@@ -2,10 +2,13 @@ CC=gcc
 
 all:sensor-demo
 
-sensor-demo: build/main.o build/sensor.o build/imu.o build/accelerometer.o build/json_wrapper.o build/gyroscope.o build/magnetometer.o build/light.o build/sound.o build/env.o
+sensor-demo: build/functions.o build/main.o build/sensor.o build/imu.o build/accelerometer.o build/json_wrapper.o build/gyroscope.o build/magnetometer.o build/light.o build/sound.o build/env.o
 	g++ $^ -o $@
 build/sensor.o: src/sensor.cpp include/sensor.h
 	$(CC) -c src/sensor.cpp -o build/sensor.o -I.
+
+build/functions.o: src/functions.cpp include/functions.h
+	$(CC) -c src/functions.cpp -o build/functions.o -I.
 
 build/env.o: src/env.cpp include/env.h
 	$(CC) -c src/env.cpp -o build/env.o -I.
