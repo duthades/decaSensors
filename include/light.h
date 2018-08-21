@@ -14,6 +14,7 @@ class Light : public Env {
     inline vector<double> get_x_data() {}
     inline vector<double> get_y_data() {}
     inline vector<double> get_z_data() {}
+
 };
 }  // namespace sensor
 

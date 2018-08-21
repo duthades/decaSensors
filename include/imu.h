@@ -1,6 +1,7 @@
 #ifndef _IMU_H
 #define _IMU_H
 
+#include <string>
 #include <vector>
 #include "json_wrapper.h"
 #include "sensor.h"
@@ -20,6 +21,8 @@ class Imu : public Sensor {
     vector<double> get_y_data();
     vector<double> get_z_data();
     inline vector<double> get_data() {};
+    vector<double> operator[](char str);
+    inline double operator[](int str) {};
 
 };
 }  // namespace sensor

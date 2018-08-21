@@ -27,6 +27,15 @@ sensor::Imu::~Imu() {
 vector<double> sensor::Imu::get_x_data() { return x; }
 vector<double> sensor::Imu::get_y_data() { return y; }
 vector<double> sensor::Imu::get_z_data() { return z; }
+vector<double> sensor::Imu::operator[](char str) {
+    if (str == 'x')
+        return x;
+    else if (str == 'y')
+        return y;
+    else if (str == 'z')
+        return z;
+}
+
 }  // namespace sensor
    /*
    int main() {

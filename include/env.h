@@ -19,6 +19,8 @@ class Env : public Sensor {
     inline vector<double> get_x_data(){};
     inline vector<double> get_y_data(){};
     inline vector<double> get_z_data(){};
+    double operator[](int str);
+    inline vector<double> operator[](char str){};
 };
 }  // namespace sensor
 
