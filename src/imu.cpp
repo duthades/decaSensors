@@ -19,9 +19,6 @@ void sensor::Imu::read_data(vector<vector<double>> ref) {
 }
 sensor::Imu::Imu() {}
 sensor::Imu::~Imu() {}
-vector<double> sensor::Imu::get_x_data() { return x; }
-vector<double> sensor::Imu::get_y_data() { return y; }
-vector<double> sensor::Imu::get_z_data() { return z; }
 vector<double> sensor::Imu::operator[](char str) {
     if (str == 'x')
         return x;

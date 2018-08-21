@@ -15,6 +15,5 @@ void sensor::Env::read_data(vector<double> ref) {
     ref.clear();
 }
 sensor::Env::~Env() {}
-vector<double> sensor::Env::get_data() { return x; }
 double sensor::Env::operator[](int index) { return x[index]; }
 }  // namespace sensor

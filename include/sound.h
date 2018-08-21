@@ -7,14 +7,17 @@
 #include "sensor.h"
 
 namespace sensor {
+/**This class is a container for the sound readings from the json file.
+ * The units of the readings are decibels.
+ * Base class for the Sound class env.
+ */
 class Sound : public Env {
    public:
+    /// Create a sound class. Has arguments - vector of readings to be stored in
+    /// the class object.
     explicit Sound(vector<double> data_ref);
+    /// Default destructor for the sound class
     ~Sound() = default;
-
-    inline vector<double> get_x_data() {}
-    inline vector<double> get_y_data() {}
-    inline vector<double> get_z_data() {}
 };
 }  // namespace sensor
 

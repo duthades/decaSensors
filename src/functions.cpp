@@ -20,7 +20,7 @@ vector<vector<double>> roll_pitch_yaw(sensor::Accelerometer& acc,
 
         result[i][1] =
             atan2(ay, (sqrt((ax * ax) + (az * az)))) * 57.3;  // pitch
-        result[i][0] = atan2(ay, (sqrt((ax * ax) + (az * az)))) * 57.3;  // roll
+        result[i][0] = atan2(-1 * ax, (sqrt((ay * ay) + (az * az)))) * 57.3;  // roll
 
         auto Yh = (my * cos(result[i][1])) - (mz * sin(result[i][1]));
         auto Xh = (mx * cos(result[i][0])) +
