@@ -13,7 +13,7 @@ class Env : public Sensor {
    public:
     explicit Env(std::vector<double> data_ref);
     ~Env();
-    
+
     void read_data(std::vector<double> ref);
     vector<double> get_data();
     inline vector<double> get_x_data(){};

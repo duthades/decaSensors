@@ -52,10 +52,3 @@ vector<double> data::ReadJson::get_sound_data() {
 }
 
 }  // namespace data
-/*
-   int main() {
-       data::ReadJson data("data/data.json");
-       cout << data.get_light_data().size() << "\n";
-       auto a = data.get_accelerometer_data();
-       cout << a.size() << "\n";
-   }*/

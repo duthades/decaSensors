@@ -11,11 +11,10 @@ class Sound : public Env {
    public:
     explicit Sound(vector<double> data_ref);
     ~Sound() = default;
-    
+
     inline vector<double> get_x_data() {}
     inline vector<double> get_y_data() {}
     inline vector<double> get_z_data() {}
-
 };
 }  // namespace sensor
 

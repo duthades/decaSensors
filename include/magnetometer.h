@@ -12,7 +12,6 @@ class Magnetometer : public Imu {
     explicit Magnetometer(vector<vector<double>> data_ref);
     ~Magnetometer() = default;
     inline vector<double> get_data() {}
-
 };
 }  // namespace sensor
 

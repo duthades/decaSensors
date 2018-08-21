@@ -42,10 +42,6 @@ int get_steps(sensor::Accelerometer& acc) {
                  (acc['z'][i] * acc['z'][i]));
     }
 
-    // for i in range(1, len(acc_)-1):
-    //    if (acc_[i - 1] < acc_[i] and acc_[i] > acc_[i + 1]):
-    //        peaks += 1
-
     for (int j = 1; j < resultant.size() - 1; j++) {
         if ((resultant[j - 1] < resultant[j]) &&
             (resultant[j] > resultant[j + 1]))

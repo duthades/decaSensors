@@ -16,14 +16,9 @@ void sensor::Imu::read_data(vector<vector<double>> ref) {
         y[i] = (*iter)[1];
         z[i] = (*iter)[2];
     }
-    ref.clear();
 }
 sensor::Imu::Imu() {}
-sensor::Imu::~Imu() {
-    x.clear();
-    y.clear();
-    z.clear();
-}
+sensor::Imu::~Imu() {}
 vector<double> sensor::Imu::get_x_data() { return x; }
 vector<double> sensor::Imu::get_y_data() { return y; }
 vector<double> sensor::Imu::get_z_data() { return z; }
@@ -37,15 +32,3 @@ vector<double> sensor::Imu::operator[](char str) {
 }
 
 }  // namespace sensor
-   /*
-   int main() {
-       vector<vector<double>> test{{1, 2, 3}, {2, 3, 4}, {5, 7, 2}};
-       // sensor::Imu acc(test);
-       sensor::Sensor* sen = new sensor::Imu(test);
-       int i = 2;
-       cout << sen->get_x_data()[i] << "\n";
-       cout << sen->get_y_data()[i] << "\n";
-       cout << sen->get_z_data()[i] << "\n";
-       return 0;
-   }
-   */

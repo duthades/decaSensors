@@ -12,7 +12,6 @@ class Gyroscope : public Imu {
     explicit Gyroscope(vector<vector<double>> data_ref);
     ~Gyroscope() = default;
     inline vector<double> get_data() {}
-
 };
 }  // namespace sensor
 
