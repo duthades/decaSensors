@@ -19,6 +19,7 @@ class Imu : public Sensor {
     vector<double> get_x_data();
     vector<double> get_y_data();
     vector<double> get_z_data();
+    inline vector<double> get_data() {};
 
 };
 }  // namespace sensor

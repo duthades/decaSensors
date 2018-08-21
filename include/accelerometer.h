@@ -11,6 +11,8 @@ class Accelerometer : public Imu {
    public:
     Accelerometer(vector<vector<double>> data_ref);
     ~Accelerometer() = default;
+    inline vector<double> get_data() {}
+
 };
 }  // namespace sensor
 

@@ -9,15 +9,16 @@ namespace sensor {
 class Env : public Sensor {
     int size;
     std::vector<double> x;
+
    public:
-    Env(vector<double> data_ref);
+    Env(std::vector<double> data_ref);
     ~Env();
-    Env();
-    void read_data(vector<double> ref);
+    
+    void read_data(std::vector<double> ref);
     vector<double> get_data();
-    virtual vector<double> get_x_data() ;
-    virtual vector<double> get_y_data() ;
-    virtual vector<double> get_z_data() ;
+    inline vector<double> get_x_data(){};
+    inline vector<double> get_y_data(){};
+    inline vector<double> get_z_data(){};
 };
 }  // namespace sensor
 

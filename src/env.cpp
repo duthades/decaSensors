@@ -14,21 +14,16 @@ void sensor::Env::read_data(vector<double> ref) {
     }
     ref.clear();
 }
-sensor::Env::Env() {}
-sensor::Env::~Env() { x.clear(); }
+sensor::Env::~Env() {}
 vector<double> sensor::Env::get_data() { return x; }
 
-vector<double> sensor::Env::get_x_data() {};
-vector<double> sensor::Env::get_y_data() {};
-vector<double> sensor::Env::get_z_data() {};
-
 }  // namespace sensor
-/*
-int main() {
-    vector<double> test{1, 2, 3, 4, 5, 6, 7, 8, 9, 9};
-    // sensor::Env acc(test);
-    sensor::Sensor* sen = new sensor::Env(test);
-    int i = 2;
-    cout << sen->get_data()[i] << "\n";
-    return 0;
-}*/
+   /*
+   int main() {
+       vector<double> test{1, 2, 3, 4, 5, 6, 7, 8, 9, 9};
+       // sensor::Env acc(test);
+       sensor::Sensor* sen = new sensor::Env(test);
+       int i = 2;
+       cout << sen->get_data()[i] << "\n";
+       return 0;
+   }*/
